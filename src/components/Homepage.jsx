@@ -1,9 +1,13 @@
 import React from 'react'
 import millify from 'millify'
 import { Typography, Row, Col, Statistic } from 'antd';
+import { useGetCryptosQuery } from '../services/cryptoAPI';
 import { Link } from 'react-router-dom';
 const {Title} = Typography;
 const Homepage = () => {
+   const {data,isFetching} = useGetCryptosQuery();
+   const globalStats = data?.data?.stats; //checking data
+   console.log(globalStats);
   return (
      <React.Fragment>
           <Title level={2}>Global Crypto Status</Title>
